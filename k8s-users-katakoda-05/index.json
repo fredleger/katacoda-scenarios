@@ -1,0 +1,43 @@
+{
+    "pathwayTitle": "Kuberntes for devs - level 2",
+    "title": "replicasets & deployments",
+    "description": "A fast kubernetes learning curve course in French",
+    "difficulty": "beginner",
+    "time": "5 minutes",
+    "details": {
+        "intro": {
+            "text": "intro.md"
+        },
+        "steps": [
+            {
+                "title": "ReplicaSets",
+                "text": "step1.md"
+            },
+            {
+                "title": "Deployments",
+                "text": "step2.md"
+            }
+        ],
+        "assets": {
+          "host01": [
+            {
+              "file": "replicaset.yaml",
+              "target": "/root"
+            },
+            {
+              "file": "deployment.yaml",
+              "target": "/root"
+            }
+          ]
+        },
+        "finish": {
+            "text": "finish.md"
+        }
+    },
+    "environment": {
+        "uilayout": "terminal"
+    },
+    "backend": {
+        "imageid": "kubernetes"
+    }
+}
