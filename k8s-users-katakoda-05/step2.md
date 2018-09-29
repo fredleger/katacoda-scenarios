@@ -12,7 +12,7 @@
 
 4) Remplacez l'image utilisée par une autre et appliquez le:
     `kubectl edit deployment myapp11-deploy`{{ execute }}
-    `kubectl get pods -o yaml -w | grep image`{{ execute }}
+    `kubectl get pods -o yaml -w | grep image:`{{ execute }}
 
 5) Incrémentez la version affichée de 1 puis de 2 en la déployant à chaque fois.
     `kubectl edit deployment myapp11-deploy`{{ execute }}
@@ -20,4 +20,4 @@
 6) Puis revenez en arrière au moyen de la commande suivante:
     `kubectl rollout history deployment myapp11-deploy`{{ execute }}
     `kubectl rollout undo deployment myapp11-deploy --to-revision=1`{{ execute }}
-    `kubectl get pods -o yaml|grep image`{{ execute }}
+    `kubectl get pods -o yaml | grep image:`{{ execute }}

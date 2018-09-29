@@ -13,7 +13,7 @@
 4) Changez l'image utilisée par une autre et appliquez cela via la commande suivante:
     `sed -i.bak -e 's/alpine\:edge/nginx:latest/' replicaset.yaml`{{ execute }}
     `kubectl apply -f replicaset.yaml`{{ execute }}
-    `kubectl get pods -o yaml | grep image`{{ execute }}
+    `kubectl get pods -o yaml | grep image:`{{ execute }}
 
 5) cleanup
     `kubectl delete -f replicaset.yaml`{{ execute }}
