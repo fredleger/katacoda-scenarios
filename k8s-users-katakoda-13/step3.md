@@ -10,6 +10,9 @@
 
 3) Que constatez vous ?
 
+`kubectl get hpa -w`{{ execute }}
+`kubectl get pods -w`{{ execute }}
+
 4) Cleanup
 
 `kubectl delete -f 3-hpa.yaml`{{ execute }}
