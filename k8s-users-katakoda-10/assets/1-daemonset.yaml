@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: app21-daemon-set
+spec:
+  selector:
+    matchLabels:
+      name: app21
+  template:
+    metadata:
+      labels:
+        name: app21
+    spec:
+      tolerations:
+      - key: node-role.kubernetes.io/master
+        effect: NoSchedule
+      containers:
+      - name: app21
+        image: alpine:edge
+        securityContext:
+          privileged: true
+        volumeMounts:
+        - name: dockersocket
+          mountPath: /data
+          readOnly: false
+      volumes:
+      - name: dockersocket
+        hostPath:
+          path: /tmp/test-app21
