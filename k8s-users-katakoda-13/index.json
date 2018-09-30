@@ -20,7 +20,8 @@
             },
             {
                 "title": "Scaling automatique",
-                "text": "step3.md"
+                "text": "step3.md",
+                "courseData": "setup-hpa.sh"
             }
         ],
         "assets": {
