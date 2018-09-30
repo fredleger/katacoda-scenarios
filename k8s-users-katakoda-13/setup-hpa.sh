@@ -4,9 +4,6 @@ set -e -o pipefail
 
 exec 2>&1 > $HOME/.hpa_install.log
 
-echo "+ getting latest helm release"
-curl https://raw.githubusercontent.com/helm/helm/master/scripts/get | bash
-
 echo "+ wait for kube"
 until [ "$(kubectl get nodes |tail -1 |awk '{ print $2 }')" = "Ready" ]; do
     sleep 3

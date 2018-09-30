@@ -4,7 +4,7 @@ apiVersion: apps/v1
 metadata:
   name: myapp24-deploy
 spec:
-  replicas: 8
+  replicas: 5
   strategy:
     rollingUpdate:
       maxUnavailable: 0

@@ -35,3 +35,7 @@ Normalement vous devriez voir un upgrade en erreur qui va conserver le service.
 
 7) Concluez
 
+8) Cleanup
+
+`kubectl delete -f 1-rolling-update.yaml`{{ execute }}
+
