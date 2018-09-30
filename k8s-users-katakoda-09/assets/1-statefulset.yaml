@@ -1,0 +1,57 @@
+---
+kind: StatefulSet
+apiVersion: apps/v1
+metadata:
+  name: myapp20-stateful-set
+spec:
+  serviceName: "app20"
+  replicas: 2
+  selector:
+    matchLabels:
+      app: app20
+  template:
+    metadata:
+      labels:
+        app: app20
+    spec:
+      volumes:
+      - name: nginx-data
+      containers:
+      - name: app20
+        image: nginx
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - mountPath: "/usr/share/nginx/html"
+          name: nginx-data
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: app20
+spec:
+  type: ClusterIP
+  selector:
+    app: app20
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80
+    targetPort: 80
+---
+kind: Ingress
+apiVersion: extensions/v1beta1
+metadata:
+  name: app20-ingress
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /
+        backend:
+          serviceName: app20
+          servicePort: 80
+      - path: /*
+        backend:
+          serviceName: app20
+          servicePort: 80
