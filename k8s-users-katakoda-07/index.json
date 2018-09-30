@@ -24,9 +24,9 @@
             }
           ]
         },
-        "files" : {
+        "files" : [
             "1-ingress.yaml"
-        },
+        ],
         "finish": {
             "text": "finish.md"
         }
