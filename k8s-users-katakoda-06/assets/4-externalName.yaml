@@ -1,0 +1,8 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: app15
+spec:
+  type: ExternalName
+  externalName: api.github.com

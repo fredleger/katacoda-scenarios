@@ -1,0 +1,30 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp14-deploy
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: app14
+  template:
+    metadata:
+      labels:
+        app: app14
+    spec:
+      containers:
+      - name: app14
+        image: webofmars/go-whoami:latest
+        ports:
+        - containerPort: 3000
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: app14
+spec:
+  type: ClusterIP
+  clusterIP: None
+  selector:
+    app: app14

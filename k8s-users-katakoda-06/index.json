@@ -1,6 +1,6 @@
 {
     "pathwayTitle": "Kuberntes for devs - level 2",
-    "title": "replicasets and deployments",
+    "title": "services",
     "description": "A fast kubernetes learning curve course in French",
     "icon": "fa-kubernetes",
     "difficulty": "beginner",
@@ -11,32 +11,37 @@
         },
         "steps": [
             {
-                "title": "ReplicaSets",
+                "title": "clusterIP",
                 "text": "step1.md"
             },
             {
-                "title": "Deployments",
+                "title": "nodePort",
                 "text": "step2.md"
+            },
+            {
+                "title": "headless",
+                "text": "step3.md"
+            },
+            {
+                "title": "externalName",
+                "text": "step4.md"
             }
         ],
         "assets": {
-            "host01": [
-                {
-                    "file": "replicaset.yaml",
-                    "target": "/root"
-                },
-                {
-                    "file": "deployment.yaml",
-                    "target": "/root"
-                }
-            ]
+          "host01": [
+            {
+              "file": "*",
+              "target": "/root"
+            }
+          ]
         },
         "finish": {
             "text": "finish.md"
         }
     },
     "environment": {
-        "uilayout": "terminal"
+        "uilayout": "editor-terminal",
+        "uisettings": "yaml"
     },
     "backend": {
         "imageid": "kubernetes"
