@@ -1,0 +1,40 @@
+{
+    "pathwayTitle": "Kuberntes for devs - level 2",
+    "title": "PV and PVC",
+    "description": "A fast kubernetes learning curve course in French",
+    "icon": "fa-kubernetes",
+    "difficulty": "beginner",
+    "time": "5 minutes",
+    "details": {
+        "intro": {
+            "text": "intro.md"
+        },
+        "steps": [
+            {
+                "title": "persistent volumes",
+                "text": "step1.md"
+            }
+        ],
+        "assets": {
+          "host01": [
+            {
+              "file": "*",
+              "target": "/root"
+            }
+          ]
+        },
+        "files" : [
+            "1-net-pol.yaml"
+        ],
+        "finish": {
+            "text": "finish.md"
+        }
+    },
+    "environment": {
+        "uilayout": "editor-terminal",
+        "uisettings": "yaml"
+    },
+    "backend": {
+        "imageid": "kubernetes"
+    }
+}
