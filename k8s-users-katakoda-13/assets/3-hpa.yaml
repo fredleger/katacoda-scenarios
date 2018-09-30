@@ -1,13 +1,36 @@
 ---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: myapp26-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app26
+  template:
+    metadata:
+      labels:
+        app: app26
+    spec:
+      containers:
+      - name: app26
+        image: infrabuilder/glouton:latest
+        resources:
+          requests:
+            cpu: "0.75"
+          limits:
+            cpu: "1"
+---
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
-  name: myapp25-hpa
+  name: myapp26-hpa
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: myapp25-deploy
+    name: myapp26-deploy
   minReplicas: 2
   maxReplicas: 4
   targetCPUUtilizationPercentage: 10

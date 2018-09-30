@@ -15,8 +15,3 @@ spec:
       containers:
       - name: app25
         image: infrabuilder/glouton:latest
-        resources:
-          requests:
-            cpu: "0.75"
-          limits:
-            cpu: "1"

@@ -5,3 +5,7 @@
 2) Lancez la commande `kubectl scale deployment myapp25-deploy --replicas=5`{{ execute }}
 
 3) Que constatez vous ? Jouez avec les autres valeurs.
+
+4) Cleanup
+
+`kubectl delete -f 2-scaling.yaml`{{ execute }}

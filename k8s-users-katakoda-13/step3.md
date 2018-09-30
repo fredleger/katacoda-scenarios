@@ -9,3 +9,7 @@
 `kubectl apply -f 3-hpa.yaml`{{ execute }}
 
 3) Que constatez vous ?
+
+4) Cleanup
+
+`kubectl delete -f 3-hpa.yaml`{{ execute }}
