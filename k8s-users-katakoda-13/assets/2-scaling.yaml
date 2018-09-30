@@ -14,4 +14,4 @@ spec:
     spec:
       containers:
       - name: app25
-        image: infrabuilder/glouton:latest
+        image: webofmars/go-whoami:latest

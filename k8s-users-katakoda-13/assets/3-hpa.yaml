@@ -18,9 +18,9 @@ spec:
         image: infrabuilder/glouton:latest
         resources:
           requests:
-            cpu: "0.75"
+            cpu: "0.25"
           limits:
-            cpu: "1"
+            cpu: "0.50"
 ---
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
