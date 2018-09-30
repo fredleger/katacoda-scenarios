@@ -36,21 +36,20 @@ sleep 3
 echo "   --> helm is here"
 
 echo "+ deploy heapster via helm"
-helm install --name heapster --namespace kube-system \
-    --set rbac.create=true stable/heapster
+helm upgrade -i --namespace kube-system \
+    --set rbac.create=true --wait --recreate-pods  heapster stable/heapster
 
 echo "+ deploy metrics-server"
-helm upgrade --namespace kube-system -i metrics-server stable/metrics-server
-MASTERIP=$(kubectl get nodes --output=jsonpath='{range .items[*]}{.status.addresses[?(@.type=="InternalIP")].address} {.spec.podCIDR} {"\n"}{end}')
+helm upgrade --namespace kube-system -i --wait --recreate-pods metrics-server stable/metrics-server
 
-cat <<EOF | kubectl apply -n kube-system -f -
+echo "+ patching the metrics-server for 1.11"
+export MASTERIP=$(kubectl get nodes --output=jsonpath='{range .items[*]}{.status.addresses[?(@.type=="InternalIP")].address} {.spec.podCIDR} {"\n"}{end}')
+echo "guess that server ip might be : $MASTERIP"
+
+cat <<__EOF__ | kubectl apply -n kube-system -f -
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  annotations:
-    deployment.kubernetes.io/revision: "3"
-  creationTimestamp: 2018-09-30T11:31:51Z
-  generation: 3
   labels:
     app: metrics-server
     chart: metrics-server-2.0.2
@@ -104,4 +103,4 @@ spec:
       - hostnames:
         - master
         ip: $MASTERIP
-EOF
+__EOF__
