@@ -41,6 +41,7 @@ helm install --name heapster --namespace kube-system \
 
 echo "+ deploy metrics-server"
 helm upgrade --namespace kube-system -i metrics-server stable/metrics-server
+MASTERIP=$(kubectl get nodes --output=jsonpath='{range .items[*]}{.status.addresses[?(@.type=="InternalIP")].address} {.spec.podCIDR} {"\n"}{end}')
 
 cat <<EOF | kubectl apply -n kube-system -f -
 apiVersion: extensions/v1beta1
@@ -102,5 +103,5 @@ spec:
       hostAliases:
       - hostnames:
         - master
-        ip: 172.17.0.28
+        ip: $MASTERIP
 EOF
