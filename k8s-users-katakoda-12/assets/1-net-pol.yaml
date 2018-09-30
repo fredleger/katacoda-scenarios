@@ -1,0 +1,84 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: app23-deny
+spec:
+  podSelector: {}
+  policyTypes:
+  - Ingress
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: app23-allow-cli
+spec:
+  podSelector:
+    matchLabels:
+      app: app23
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app : app23-cli
+    ports:
+    - protocol: TCP
+      port: 87
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: myapp23-cli-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app23-cli
+  template:
+    metadata:
+      labels:
+        app: app23-cli
+    spec:
+      containers:
+      - name: app23-cli
+        image: alpine:edge
+        args:
+        - ash
+        - -c
+        - sleep 1d
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: myapp23-deploy
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: app23
+  template:
+    metadata:
+      labels:
+        app: app23
+    spec:
+      containers:
+      - name: app23
+        image: nginx
+        ports:
+        - containerPort: 80
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: app23
+spec:
+  type: ClusterIP
+  selector:
+    app: app23
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80
+    targetPort: 80
