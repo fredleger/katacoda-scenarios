@@ -1,0 +1,50 @@
+{
+    "pathwayTitle": "Kuberntes for devs - level 2",
+    "title": "Update strategies and Pod scaling",
+    "description": "A fast kubernetes learning curve course in French",
+    "icon": "fa-kubernetes",
+    "difficulty": "beginner",
+    "time": "5 minutes",
+    "details": {
+        "intro": {
+            "text": "intro.md"
+        },
+        "steps": [
+            {
+                "title": "Strategies de mise à jour",
+                "text": "step1.md"
+            },
+            {
+                "title": "Scaling manuel",
+                "text": "step2.md"
+            },
+            {
+                "title": "Scaling automatique",
+                "text": "step3.md"
+            }
+        ],
+        "assets": {
+          "host01": [
+            {
+              "file": "*",
+              "target": "/root"
+            }
+          ]
+        },
+        "files" : [
+            "1-rolling-update.yaml",
+            "2-scaling.yaml",
+            "3-hpa.yaml"
+        ],
+        "finish": {
+            "text": "finish.md"
+        }
+    },
+    "environment": {
+        "uilayout": "editor-terminal",
+        "uisettings": "yaml"
+    },
+    "backend": {
+        "imageid": "kubernetes"
+    }
+}

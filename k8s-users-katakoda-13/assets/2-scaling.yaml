@@ -1,0 +1,22 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: myapp25-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app25
+  template:
+    metadata:
+      labels:
+        app: app25
+    spec:
+      containers:
+      - name: app25
+        image: infrabuilder/glouton:latest
+        resources:
+          requests:
+            cpu: "0.75"
+          limits:
+            cpu: "1"

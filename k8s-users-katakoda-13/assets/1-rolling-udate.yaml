@@ -1,0 +1,38 @@
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: myapp24-deploy
+spec:
+  replicas: 8
+  strategy:
+    rollingUpdate:
+      maxUnavailable: 2
+      maxSurge: 2
+  selector:
+    matchLabels:
+      app: app24
+  template:
+    metadata:
+      labels:
+        app: app24
+    spec:
+      containers:
+      - name: app24
+        image: jocatalin/kubernetes-bootcamp:v10
+        ports:
+        - containerPort: 8080
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: app24
+spec:
+  type: ClusterIP
+  selector:
+    app: app24
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80
+    targetPort: 8080
