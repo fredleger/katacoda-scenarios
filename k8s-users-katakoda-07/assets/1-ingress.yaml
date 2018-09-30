@@ -1,0 +1,87 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp16a-deploy
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: app16a
+  template:
+    metadata:
+      labels:
+        app: app16a
+    spec:
+      containers:
+      - name: app16a
+        image: webofmars/go-whoami:latest
+        ports:
+        - containerPort: 3000
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp16b-deploy
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: app16b
+  template:
+    metadata:
+      labels:
+        app: app16b
+    spec:
+      containers:
+      - name: app16b
+        image: jwilder/whoami:latest
+        ports:
+        - containerPort: 8000
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: app16a
+spec:
+  type: ClusterIP
+  selector:
+    app: app16a
+  ports:
+  - name: http1
+    protocol: TCP
+    port: 80
+    targetPort: 3000
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: app16b
+spec:
+  type: ClusterIP
+  selector:
+    app: app16b
+  ports:
+  - name: http2
+    protocol: TCP
+    port: 80
+    targetPort: 8000
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: app16-ingress
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /v1
+        backend:
+          serviceName: app16b
+          servicePort: 80
+  - http:
+      paths:
+      - path: /v2
+        backend:
+          serviceName: app16a
+          servicePort: 80

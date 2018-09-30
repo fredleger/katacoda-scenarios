@@ -1,0 +1,41 @@
+{
+    "pathwayTitle": "Kuberntes for devs - level 2",
+    "title": "ingress",
+    "description": "A fast kubernetes learning curve course in French",
+    "icon": "fa-kubernetes",
+    "difficulty": "beginner",
+    "time": "5 minutes",
+    "details": {
+        "intro": {
+            "text": "intro.md",
+            "courseData": "helm.sh"
+        },
+        "steps": [
+            {
+                "title": "ingress",
+                "text": "step1.md"
+            }
+        ],
+        "assets": {
+          "host01": [
+            {
+              "file": "*",
+              "target": "/root"
+            }
+          ]
+        },
+        "files" : {
+            "1-ingress.yaml"
+        },
+        "finish": {
+            "text": "finish.md"
+        }
+    },
+    "environment": {
+        "uilayout": "editor-terminal",
+        "uisettings": "yaml"
+    },
+    "backend": {
+        "imageid": "kubernetes"
+    }
+}
