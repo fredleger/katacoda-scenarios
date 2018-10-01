@@ -7,7 +7,7 @@
     `kubectl get pods -w`{{ execute }}
 
 3) amenez le nombre de pods à 10 au moyen de la commande suivante:
-    `kubectl scale replicaset --replicas=10 myapp11-deploy`{{ execute }}
+    `kubectl scale deployment --replicas=10 myapp11-deploy`{{ execute }}
     `kubectl get pods -w`{{ execute }}
 
 4) Remplacez l'image utilisée par une autre et appliquez le:
