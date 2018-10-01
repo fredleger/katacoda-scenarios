@@ -57,13 +57,7 @@ metadata:
     release: metrics-server
   name: metrics-server
   namespace: kube-system
-  resourceVersion: "2298"
-  selfLink: /apis/extensions/v1beta1/namespaces/kube-system/deployments/metrics-server
-  uid: 6cbdd3ef-c4a4-11e8-9f25-0242ac11001c
 spec:
-  progressDeadlineSeconds: 600
-  replicas: 1
-  revisionHistoryLimit: 10
   selector:
     matchLabels:
       app: metrics-server
