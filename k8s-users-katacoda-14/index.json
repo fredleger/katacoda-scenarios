@@ -1,0 +1,37 @@
+{
+    "pathwayTitle": "Helm",
+    "title": "Helm - advanced topics",
+    "description": "A french course for learning advanced templating techniques in kubernetes helm",
+    "icon": "fa-kubernetes",
+    "difficulty": "advanced",
+    "time": "15 minutes",
+    "details": {
+        "intro": {
+            "text": "intro.md"
+        },
+        "steps": [
+            {
+                "title": "Initial setup",
+                "text": "step1.md"
+            }
+        ],
+        "assets": {
+          "host01": [
+            {
+              "file": "*",
+              "target": "/root"
+            }
+          ]
+        },
+        "finish": {
+            "text": "finish.md"
+        }
+    },
+    "environment": {
+        "uilayout": "editor-terminal",
+        "uisettings": "yaml"
+    },
+    "backend": {
+        "imageid": "kubernetes"
+    }
+}
