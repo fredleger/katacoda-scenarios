@@ -13,8 +13,8 @@ pour la rapidité de cette exercise helm est déjà installé. Vérifiez le en t
 
 1) création d'un service account
 
-    `kubectl apply -f helm-rbac.yaml`{{execute}}
+`kubectl apply -f helm-rbac.yaml`{{execute}}
 
 2) installation de tiller utilisant ce service account
 
-    `helm init --service-account tiller`{{execute}}
+`helm init --service-account tiller`{{execute}}
