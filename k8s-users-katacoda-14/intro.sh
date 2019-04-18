@@ -14,4 +14,4 @@ tar -zxvf sf4-animals-demo.tgz && rm sf4-animals-demo.tgz
 # done
 
 echo "+ finished succesfuly"
-exit 1
+#exit 1
