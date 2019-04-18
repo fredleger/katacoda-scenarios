@@ -17,10 +17,10 @@
             }
         ],
         "assets": {
-          "client": [
+          "host01": [
             {
               "file": "*",
-              "target": "~/"
+              "target": "/root"
             }
           ]
         },

@@ -1,5 +1,3 @@
-# Initial Setup
-
 ## installation de helm en local
 
 helm est disponible au téléchargement à l'adresse [suivante](https://github.com/helm/helm/releases)
@@ -13,30 +11,10 @@ pour la rapidité de cette exercise helm est déjà installé. Vérifiez le en t
 
 ## installation de helm dans votre cluster
 
-*création d'un service account*
+1) création d'un service account
 
-```sh
-cat <<__EOF__ | kubectl apply -f -
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: tiller
-  namespace: kube-system
----
-apiVersion: rbac.authorization.k8s.io/v1beta1
-kind: ClusterRoleBinding
-metadata:
-  name: tiller
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: cluster-admin
-subjects:
-  - kind: ServiceAccount
-    name: tiller
-    namespace: kube-system
-__EOF__
-```{{execute}}
+    `kubectl apply -f helm-rbac.yaml`{{execute}}
 
-*installation de tiller utilisant ce service account*
-`helm init --service-account tiller`{{execute}}
+2) installation de tiller utilisant ce service account
+
+    `helm init --service-account tiller`{{execute}}
