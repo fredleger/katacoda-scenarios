@@ -18,3 +18,5 @@ pour la rapidité de cette exercise helm est déjà installé. Vérifiez le en t
 2) installation de tiller utilisant ce service account
 
 `helm init --service-account tiller`{{execute}}
+
+Vous pouvez à présent vérifier au moyen de la commande `helm version`{{execute}}

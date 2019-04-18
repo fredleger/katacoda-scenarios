@@ -14,7 +14,12 @@
             {
                 "title": "Initial setup",
                 "text": "step1.md"
+            },
+            {
+                "title": "installing a chart",
+                "text": "step2.md"
             }
+
         ],
         "assets": {
           "host01": [
