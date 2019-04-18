@@ -8,6 +8,7 @@
     "details": {
         "intro": {
             "text": "intro.md",
+            "courseData": "launch.sh",
             "code": "intro.sh"
         },
         "steps": [

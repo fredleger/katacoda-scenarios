@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e -o pipefail
+set -e -o pipefail +x
 #exec > intro.log 2>&1
 
 echo "+ get scenario ressources"
